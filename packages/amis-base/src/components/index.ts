@@ -1,4 +1,6 @@
 import Amis from "./Amis";
+import Diy from "./Diy";
 export {
-    Amis
+    Amis,
+    Diy
 }
