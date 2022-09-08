@@ -11,7 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
-
+!dist/amis-base.cjs
+!dist/amis-base.umd.cjs
+!dist/*.d.ts
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
