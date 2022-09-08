@@ -1,0 +1,41 @@
+{
+  "name": "amis-base",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/amis-base.umd.cjs",
+  "module": "./dist/amis-base.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/amis-base.js",
+      "require": "./dist/amis-base.umd.cjs"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@types/react": "^17.0.49",
+    "@types/react-dom": "^17.0.17",
+    "@vitejs/plugin-react": "^2.1.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  },
+  "dependencies": {
+    "amis": "^2.2.0",
+    "axios": "^0.27.2",
+    "copy-to-clipboard": "^3.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
