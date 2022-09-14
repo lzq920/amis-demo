@@ -1,12 +1,19 @@
+import { useEffect, useState } from "react"
 import Amis from "./components/Amis"
 function App() {
+  const [amisScoped, setAmisScoped] = useState<any>()
+  useEffect(() => {
+    return () => {
+      amisScoped?.unmount()
+    }
+  }, [amisScoped])
   return (
     <div className="App">
       <Amis json={{
         "type": "page",
         "body": {
           "type": "crud",
-          "api": "/baiduApi/amis/api/mock2/sample",
+          "api": "prefix:baiduApi/amis/api/mock2/sample",
           "syncLocation": false,
           "columns": [
             {
@@ -110,14 +117,16 @@ function App() {
                   "level": "link",
                   "className": "text-danger",
                   "disabledOn": "this.grade === 'A'"
-                }
+                },
               ]
             }
           ]
         }
-      }} data={{}} />
+      }} updateScoped={(params) => setAmisScoped(params)
+      } />
     </div>
   )
 }
 
 export default App
+

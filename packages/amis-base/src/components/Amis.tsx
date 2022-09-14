@@ -3,14 +3,15 @@ import 'amis/lib/themes/cxd.css';
 import 'amis/lib/helper.css';
 import 'amis/sdk/iconfont.css';
 
-import { render as renderAmis, Schema } from 'amis';
+import { render as renderAmis, Schema, IScopedContext } from 'amis';
 import { ToastComponent, AlertComponent, toast, alert, confirm } from 'amis-ui';
 import axios from 'axios';
 import copy from 'copy-to-clipboard';
 declare const window: any;
 interface AmisProps {
     json: Schema,
-    data: Record<string, unknown>,
+    updateScoped?: (amisScoped: IScopedContext) => void,
+    data?: Record<string, unknown>,
 }
 export const env = {
     fetcher: ({
@@ -85,7 +86,7 @@ export const env = {
     toastPosition: 'top-center'
 }
 
-function Amis({ json, data }: AmisProps) {
+function Amis({ json, data, updateScoped }: AmisProps) {
     return (
         <>
             <ToastComponent
@@ -100,8 +101,8 @@ function Amis({ json, data }: AmisProps) {
                     json,
                     {
                         ...data,
-                        scopeRef: (_ref: any) => {
-                            window.amisScope = _ref
+                        scopeRef: (_ref: IScopedContext) => {
+                            updateScoped?.(_ref)
                         }
                     },
                     env

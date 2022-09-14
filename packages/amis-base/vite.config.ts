@@ -28,4 +28,9 @@ export default defineConfig({
       }
     }
   },
+  define: {
+    AmisService: {
+      baiduApi: "https://aisuda.bce.baidu.com"
+    }
+  }
 })
