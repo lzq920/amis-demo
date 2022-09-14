@@ -4,8 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "main": "./dist/amis-base.umd.cjs",
   "module": "./dist/amis-base.js",
